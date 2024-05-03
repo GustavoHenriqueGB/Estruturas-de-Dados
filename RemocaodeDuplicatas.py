@@ -1,8 +1,11 @@
-n = int(input())
+paren = int(ord('('))
+colc = int(ord('['))
+chave = int(ord('{'))
 
-for i in range(n):
-    frase = input()
+equacao = input()
 
-    for i in len(frase):
-        if ord(frase[i]) == 40 or ord (frase[i])== 91 or ord(frase[i]) == 123: 
-            if frase[i + 1] == 40 or frase[i + 1] == 91 or frase[i + 1] == 123:
+checagem = 0
+
+for i in range(len(equacao) - 1):
+    if not checagem and (equacao[i] == paren)
+

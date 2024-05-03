@@ -1,43 +1,30 @@
 class Roupa:
 
-    def __init__(self, tipo, cor, tempo_dobrar):
-        self.tipo = tipo
-        self.cor = cor
-        self.tempo_dobrar = tempo_dobrar
+    def __init__(self, tipe, color, time):
+        self.tipe = tipe
+        self.color = color
+        self.time = time
 
-class PilhaDeRoupas:
+class Stack:
+
     def __init__(self):
-        self.roupas = []
-        self.total_roupas = 0
-        self.tempo_total = 0
+        self.items = []
 
-    def adicionar_roupa(self, roupa):
-        self.roupas.append(roupa)
-        self.total_roupas += 1
-        self.tempo_total += roupa.tempo_dobrar
+    def push(self, item):
+        self.items.append(item)
 
-    def organizar(self):
-        gaveta = []
-        for roupa in self.roupas:
-            gaveta.append((roupa.tipo, roupa.cor))
-        return gaveta, self.total_roupas, self.tempo_total
+    def pop(self):
+        return self.items.pop()
 
 
+roupas = []
 n = int(input())
+pilha = Stack()
 
-for i in range(n - 1):
-    pilha = PilhaDeRoupas()
-    entrada = input().split()
+for i in range(n):
+    tipo, cor, tempo = input().split()
+    pecas = Roupa(tipo, cor, int(tempo))
+    roupas.append(pecas.tipe)
 
-    tipo, cor, tempo_dobrar = input().split()
-    roupa = Roupa(tipo, cor, int(tempo_dobrar))
-    pilha.adicionar_roupa(roupa)
-    
-gaveta, total_roupas, tempo_total = pilha.organizar()
-    
-print("Roupas na gaveta:")
-for roupa in gaveta:
-    print(f"{roupa[0]} {roupa[1]}")
-print(f"Total de roupas: {total_roupas}")
-print(f"Tempo total: {tempo_total} minutos\n")
-
+print(roupas)
+print(pecas)
