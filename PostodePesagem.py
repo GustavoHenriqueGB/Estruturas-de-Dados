@@ -1,46 +1,27 @@
-class Posto:
-    
-    def __init__(self):
-        self.fila = []
+n, f, p = map(int, input().split())
 
-    def __init__(self):
-        self.fator = 1
+posto = []
+tempoTotal = 0
 
-    def __init__(self):
-        self.maxpeso = 0
+posto = input().split()
 
-    def fatoramostragem(self, numero):
-        self.fator = numero
+checagem = f
 
-    def pesomax(self, numero):
-        self.maxpeso = numero
+while len(posto) > 0:
 
-    def chegada(self, carro):
-        self.fila.append(carro)
+    if checagem == f:
+        if int(posto[0]) <= p:
+            tempoTotal += 5
+            posto.pop(0)
+            checagem = 1
+        else:
+            tempoTotal += 10
+            posto.append(int(posto.pop(0)) - 2)
+            checagem = 1
+    else:
+        tempoTotal += 1
+        checagem += 1
+        posto.pop(0)
 
-    def isEmpty(self):
-        return len(self.fila) == 0
-
-    def checagem(self, maxpeso, fator):
-        count = 1
-        if not self.isEmpty():
-            for i in range(0, len(self.fila), fator):
-                if self.fila[i] <= maxpeso:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-n , f , p = int(input().split())
-veiculos = input().split()
+print(tempoTotal)
+            
