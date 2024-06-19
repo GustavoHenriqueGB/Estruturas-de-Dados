@@ -5,7 +5,6 @@ n = int(input())
 ans = []
 lista = []
 
-
 lista = [int(x) for x in input().split()]
 
 k = int(input())
